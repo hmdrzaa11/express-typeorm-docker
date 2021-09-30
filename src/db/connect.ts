@@ -1,4 +1,5 @@
 import { createConnection } from "typeorm";
+import { User } from "../entity";
 
 export async function connect() {
   try {
@@ -7,7 +8,9 @@ export async function connect() {
       host: "postgres",
       username: "admin",
       password: "password",
+      entities: [User],
     });
+    await connection.synchronize();
   } catch (error) {
     console.log(error);
     process.exit(1);
