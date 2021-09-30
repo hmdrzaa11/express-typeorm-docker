@@ -5,6 +5,8 @@ export async function connect() {
     let connection = await createConnection({
       type: "postgres",
       host: "postgres",
+      username: "admin",
+      password: "password",
     });
   } catch (error) {
     console.log(error);
